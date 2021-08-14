@@ -1,0 +1,48 @@
+{
+    "name": "tomk79/px2-seo-utils",
+    "description": "Pickles 2 に、SEOに関するユーティリティを追加します。",
+    "keywords": ["pickles2"],
+    "license": "MIT",
+    "scripts":{
+        "test": [
+            "php ./vendor/phpunit/phpunit/phpunit"
+        ]
+    } ,
+    "authors": [
+        {
+            "name": "Tomoya Koyanagi",
+            "email": "tomk79@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "pickles2/px-fw-2.x": "*",
+        "pickles2/px2-multitheme": "*",
+        "pickles2/px2-path-resolver": "*",
+        "pickles2/px2-px2dthelper": "*",
+        "pickles2/px2-remove-attr": "*",
+        "pickles2/px2-sitemapexcel": "*",
+        "phpunit/phpunit": "^4.1.0",
+        "phpdocumentor/phpdocumentor": "^2.7.0"
+    },
+    "autoload": {
+        "files": [
+            "php/apply.php",
+            "php/main.php",
+            "php/utils.php"
+        ]
+    },
+    "extra": {
+        "px2package": {
+            "name": "px2-seo-utils",
+            "type": "project",
+            "path": "tests/testdata/standard/.px_execute.php",
+            "path_homedir": "tests/testdata/standard/px-files/"
+        }
+    }
+}

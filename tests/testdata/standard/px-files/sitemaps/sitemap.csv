@@ -1,0 +1,6 @@
+"* path","* content","* id","* title","* title_breadcrumb","* title_h1","* title_label","* title_full","* logical_path","* list_flg","* layout","* orderby","* keywords","* description","* category_top_flg","* role","* proc_type","* robots:follow","* robots:index","* robots:archive","* **delete_flg"
+"/index.html",,,"HOME",,,,,,"1",,,,,,,,,,,
+"/test/all_null.html",,,"All NULL",,,,,,"1",,,,,,,,,,,
+"/test/all_no.html",,,"All no",,,,,,"1",,,,,,,,"no","no","no",
+"/test/all_yes.html",,,"All yes",,,,,,"1",,,,,,,,"yes","yes","yes",
+"/test/nofollow_noindex.html",,,"nofollow, noindex",,,,,,"1",,,,,,,,"no","no",,
