@@ -103,6 +103,20 @@ class robots{
 		$cond['follow'] = $this->px->site()->get_current_page_info('robots:follow');
 		$cond['index'] = $this->px->site()->get_current_page_info('robots:index');
 		$cond['archive'] = $this->px->site()->get_current_page_info('robots:archive');
+
+		/*
+		// NOTE: `$plugin_conf->columnName` に、サイトマップ上のカラム名を設定できる機能を想定したが、
+		// 有用かどうかわからないのでひとまず固定名とする。
+		if( isset( $this->plugin_conf->columnName->follow ) && strlen($this->plugin_conf->columnName->follow) ){
+			$cond['follow'] = $this->px->site()->get_current_page_info($this->plugin_conf->columnName->follow);
+		}
+		if( isset( $this->plugin_conf->columnName->index ) && strlen($this->plugin_conf->columnName->index) ){
+			$cond['index'] = $this->px->site()->get_current_page_info($this->plugin_conf->columnName->index);
+		}
+		if( isset( $this->plugin_conf->columnName->archive ) && strlen($this->plugin_conf->columnName->archive) ){
+			$cond['archive'] = $this->px->site()->get_current_page_info($this->plugin_conf->columnName->archive);
+		}
+		*/
 		return $cond;
 	}
 

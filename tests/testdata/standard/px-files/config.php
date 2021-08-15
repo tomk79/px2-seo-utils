@@ -173,16 +173,11 @@ return call_user_func( function(){
 		// SEO Utils
 		tomk79\pickles2\px2_seo_utils\config::init(array(
 			'robots' => array(
-				// metaタグ robots の挿入を有効にする
+				// metaタグ robots の自動挿入を有効にする
 				'enable' => true,
-				'column-name' => array(
-					'follow' => 'robots:follow',
-					'index' => 'robots:index',
-					'archive' => 'robots:archive',
-				),
 			),
-			'sitemap.xml' => array(
-				// sitemap.xml の生成機能を有効にする
+			'sitemapXml' => array(
+				// sitemap.xml の自動生成機能を有効にする
 				'enable' => true,
 				'trigger' => '/index.html',
 				'dist' => '/sitemap.xml',
