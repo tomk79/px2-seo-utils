@@ -28,8 +28,8 @@ class config{
 			array_push($px2conf->funcs->processor->html, 'tomk79\pickles2\px2_seo_utils\robots::plugin('.json_encode($plugin_conf->robots).')');
 		}
 
-		if( isset( $plugin_conf->{'sitemap.xml'}->enable ) && $plugin_conf->{'sitemap.xml'}->enable ){
-			array_push($px2conf->funcs->before_output, 'tomk79\pickles2\px2_seo_utils\sitemapXml::plugin('.json_encode($plugin_conf->{'sitemap.xml'}).')');
+		if( isset( $plugin_conf->sitemapXml->enable ) && $plugin_conf->sitemapXml->enable ){
+			array_push($px2conf->funcs->before_output, 'tomk79\pickles2\px2_seo_utils\sitemapXml::plugin('.json_encode($plugin_conf->sitemapXml).')');
 		}
 
         return;

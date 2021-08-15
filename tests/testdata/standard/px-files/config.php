@@ -16,8 +16,10 @@ return call_user_func( function(){
 	$conf->name = 'px2-seo-utils';
 	/** コピーライト表記 */
 	$conf->copyright = 'Pickles 2 Project';
+	/** スキーマ */
+	$conf->scheme = 'https';
 	/** ドメイン(本番環境のドメイン) */
-	$conf->domain = null;
+	$conf->domain = 'test.example.com';
 	/** コンテンツルートディレクトリ */
 	$conf->path_controot = '/';
 
