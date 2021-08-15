@@ -169,6 +169,25 @@ return call_user_func( function(){
 
 		// sitemapExcel
 		'tomk79\pickles2\sitemap_excel\pickles_sitemap_excel::exec' ,
+
+		// SEO Utils
+		tomk79\pickles2\px2_seo_utils\config::init(array(
+			'meta-robots' => array(
+				// metaタグ robots の挿入を有効にする
+				'enable' => true,
+				'column-name' => array(
+					'follow' => 'robots:follow',
+					'index' => 'robots:index',
+					'archive' => 'robots:archive',
+				),
+			),
+			'sitemap.xml' => array(
+				// sitemap.xml の生成機能を有効にする
+				'enable' => true,
+				'trigger' => '/index.html',
+				'dist' => '/sitemap.xml',
+			),
+		)),
 	);
 
 	/**
@@ -225,11 +244,6 @@ return call_user_func( function(){
 			"attrs"=>array(
 				'data-contents-area',
 			) ,
-		)).')' ,
-
-		// px2-seo-utils
-		// 検索ボット向けの制御メタ情報 を head要素内に追加する。
-		'tomk79\pickles2\px2_seo_utils\main::append('.json_encode(array(
 		)).')' ,
 
 		// output_encoding, output_eol_coding の設定に従ってエンコード変換する。
