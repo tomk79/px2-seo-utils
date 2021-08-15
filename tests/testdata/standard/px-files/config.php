@@ -172,7 +172,7 @@ return call_user_func( function(){
 
 		// SEO Utils
 		tomk79\pickles2\px2_seo_utils\config::init(array(
-			'meta-robots' => array(
+			'robots' => array(
 				// metaタグ robots の挿入を有効にする
 				'enable' => true,
 				'column-name' => array(

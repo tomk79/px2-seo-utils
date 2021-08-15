@@ -10,24 +10,34 @@ namespace tomk79\pickles2\px2_seo_utils;
 class main{
 
 	/**
-	 * 検索ボット向けの制御メタ情報 を head要素内に追加する。
-	 *
-	 * @param object $px Picklesオブジェクト
+	 * Picklesオブジェクト
 	 */
-	public static function append( $px, $plugin_conf ){
-		$apply = new apply( $px );
-		$apply->append();
-	}
-
+	private $px;
 
 	/**
-	 * 検索ボット向けの制御メタタグ を生成して取得する。
+	 * プラグイン設定オブジェクト
+	 */
+	private $plugin_conf;
+
+	/**
+	 * constructor
 	 *
 	 * @param object $px Picklesオブジェクト
+	 * @param object $plugin_conf プラグイン設定オブジェクト
 	 */
-	public static function tag( $cond = null ){
-		$apply = new apply();
-		return $apply->tag($cond);
+	public function __construct( $px = null, $plugin_conf = null ){
+		$this->px = $px;
+		$this->plugin_conf = $plugin_conf;
+	}
+
+	/**
+	 * robotsオブジェクトを生成して返す
+	 *
+	 * @param array $cond メタタグ生成の条件
+	 */
+	public function robots(){
+		$robots = new robots( $this->px );
+		return $robots;
 	}
 
 }

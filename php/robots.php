@@ -5,9 +5,9 @@
 namespace tomk79\pickles2\px2_seo_utils;
 
 /**
- * apply.php
+ * robots.php
  */
-class apply{
+class robots{
 
 	/**
 	 * Picklesオブジェクト
@@ -15,17 +15,34 @@ class apply{
 	private $px;
 
 	/**
-	 * constructor
-	 * @param object $px Picklesオブジェクト
+	 * プラグイン設定オブジェクト
 	 */
-	public function __construct( $px = null ){
-		$this->px = $px;
-	}
+	private $plugin_conf;
 
 	/**
 	 * 検索ボット向けの制御メタ情報 を head要素内に追加する。
 	 *
 	 * @param object $px Picklesオブジェクト
+	 * @param object $plugin_conf プラグイン設定オブジェクト
+	 */
+	public static function plugin( $px, $plugin_conf = null ){
+		$robots = new self( $px, $plugin_conf );
+		$robots->append();
+		return;
+	}
+
+	/**
+	 * constructor
+	 * @param object $px Picklesオブジェクト
+	 * @param object $plugin_conf プラグイン設定オブジェクト
+	 */
+	public function __construct( $px, $plugin_conf = null ){
+		$this->px = $px;
+		$this->plugin_conf = $plugin_conf;
+	}
+
+	/**
+	 * 検索ボット向けの制御メタ情報 を head要素内に追加する。
 	 */
 	public function append(){
 		$key = 'main';
@@ -37,6 +54,8 @@ class apply{
 		$src = preg_replace('/(<\/head>)/si', $meta.'$1', $src);
 
 		$this->px->bowl()->replace( $src, $key );
+
+		return;
 	}
 
 	/**
@@ -50,6 +69,7 @@ class apply{
 		}
 		$meta = '<meta name="robots" content="'.htmlspecialchars($meta_content).'" />';
 		$this->http_header($cond);
+
 		return $meta;
 	}
 

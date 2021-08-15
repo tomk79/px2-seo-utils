@@ -65,12 +65,18 @@ class mainTest extends PHPUnit_Framework_TestCase{
 	 */
 	public function testTag(){
 
-		$this->assertSame( main::tag(), '' );
-		$this->assertSame( main::tag(array()), '' );
-		$this->assertSame( main::tag(array('follow'=>'','index'=>'','archive'=>'')), '' );
-		$this->assertSame( main::tag(array('follow'=>'no','index'=>'','archive'=>'')), '<meta name="robots" content="nofollow" />' );
+		$cd = realpath('.');
+		chdir( __DIR__.'/testdata/standard/' );
+		$px = new \picklesFramework2\px(__DIR__.'/testdata/standard/px-files/');
+		$seoUtils = new tomk79\pickles2\px2_seo_utils\main($px);
 
-	}//testTag()
+		$this->assertSame( $seoUtils->robots()->tag(), '' );
+		$this->assertSame( $seoUtils->robots()->tag(array()), '' );
+		$this->assertSame( $seoUtils->robots()->tag(array('follow'=>'','index'=>'','archive'=>'')), '' );
+		$this->assertSame( $seoUtils->robots()->tag(array('follow'=>'no','index'=>'','archive'=>'')), '<meta name="robots" content="nofollow" />' );
+
+		chdir($cd);
+	} // testTag()
 
 	/**
 	 * Pickles 2 プラグイン テスト

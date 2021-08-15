@@ -21,27 +21,18 @@ class config{
 			return __CLASS__.'::'.__FUNCTION__.'('.( is_array($px) ? json_encode($px) : '' ).')';
 		}
 
-
-		// px2-seo-utils
 		// 検索ボット向けの制御メタ情報 を head要素内に追加する。
-        $conf = $px->conf();
-        array_push($conf->funcs->processor->html, 'tomk79\pickles2\px2_seo_utils\main::append('.json_encode(array(
-		)).')');
+        $px2conf = $px->conf();
 
+		if( isset( $plugin_conf->robots->enable ) && $plugin_conf->robots->enable ){
+			array_push($px2conf->funcs->processor->html, 'tomk79\pickles2\px2_seo_utils\robots::plugin('.json_encode($plugin_conf->robots).')');
+		}
 
-		// $apply = new apply( $px );
-		// $apply->append();
-	}
+		if( isset( $plugin_conf->{'sitemap.xml'}->enable ) && $plugin_conf->{'sitemap.xml'}->enable ){
+			array_push($px2conf->funcs->before_output, 'tomk79\pickles2\px2_seo_utils\sitemapXml::plugin('.json_encode($plugin_conf->{'sitemap.xml'}).')');
+		}
 
-
-	/**
-	 * 検索ボット向けの制御メタタグ を生成して取得する。
-	 *
-	 * @param object $px Picklesオブジェクト
-	 */
-	public static function tag( $cond = null ){
-		$apply = new apply();
-		return $apply->tag($cond);
+        return;
 	}
 
 }

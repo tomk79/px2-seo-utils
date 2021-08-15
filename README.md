@@ -10,7 +10,7 @@
 Pickles 2 をセットアップしたあとに、次のコマンドを実行します。
 
 ```
-$ composer require tomk79/px2-search-bots-headers;
+$ composer require tomk79/px2-seo-utils;
 ```
 
 ### 2. `$conf->funcs->before_sitemap` に設定する
@@ -58,14 +58,15 @@ $conf->funcs->before_sitemap = array(
 
 #### metaタグを直接取得する
 
-直接タグを取得したい場合は、次の例のように `main::tag()` メソッドから取得できます。
+直接タグを取得したい場合は、次の例のように `$seoUtils->robots()->tag()` メソッドから取得できます。
 このとき、 同時に `X-Robots-Tag` ヘッダーが発行されます。
 
 ```php
 <html>
 <head>
 <?php
-$tag = \tomk79\pickles2\px2_seo_utils\main::tag(array(
+$seoUtils = new \tomk79\pickles2\px2_seo_utils\main($px);
+$tag = $seoUtils->robots()->tag(array(
     'follow'=>'no',
     'index'=>'',
     'archive'=>'',
