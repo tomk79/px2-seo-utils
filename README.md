@@ -122,7 +122,7 @@ echo $tag;
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-seo-utils v0.1.0 (リリース日未定)
+### tomk79/px2-seo-utils v0.1.0 (2021年8月15日)
 
 - Initial Release.
 
