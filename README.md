@@ -37,6 +37,22 @@ $conf->funcs->before_sitemap = array(
 
 ### robots タグの出力
 
+#### プラグイン設定
+
+`robots->enable` を `true` に設定します。
+
+```php
+    // SEO Utils
+    tomk79\pickles2\px2_seo_utils\config::init(array(
+
+        'robots' => array(
+            // metaタグ robots の自動挿入を有効にします。
+            'enable' => true,
+        ),
+
+    )),
+```
+
 #### サイトマップを拡張する
 
 サイトマップに次の列を追加します。
@@ -76,6 +92,32 @@ echo $tag;
 </head>
 </html>
 ```
+
+### sitemap.xml の生成
+
+#### プラグイン設定
+
+`sitemapXml->enable` を `true` に設定します。
+
+```php
+    // SEO Utils
+    tomk79\pickles2\px2_seo_utils\config::init(array(
+
+        'sitemapXml' => array(
+            // sitemap.xml の自動生成機能を有効にします。
+            'enable' => true,
+
+            // ここに設定したパスへのリクエストをトリガーに、sitemap.xml が生成されます。
+            'trigger' => '/index.html',
+
+            // 生成した sitemap.xml の保存先のパスです。
+            // `.px_execute.php` が置かれているディレクトリをルートとして設定します。
+            'dist' => '/sitemap.xml',
+        ),
+
+    )),
+```
+
 
 
 ## 更新履歴 - Change log

@@ -52,6 +52,12 @@ class publishTest extends PHPUnit_Framework_TestCase{
 		$this->assertTrue( 1 < strpos( $indexHtml, '<meta name="robots" content="nofollow,noindex" />' ) );
 
 
+		$sitemapXml = $this->fs->read_file( __DIR__.'/testdata/standard/px-files/dist/sitemap.xml' );
+		// var_dump($sitemapXml);
+		$this->assertTrue( 1 < strpos( $sitemapXml, '<loc>https://test.example.com/test/all_null.html</loc>' ) );
+		$this->assertTrue( 1 < strpos( $sitemapXml, '<loc>https://test.example.com/test/nofollow_noindex.html</loc>' ) );
+
+
 		// 後始末
 		$output = $this->helper->php( [
 			__DIR__.'/testdata/standard/.px_execute.php' ,
